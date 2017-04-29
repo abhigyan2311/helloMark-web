@@ -27,9 +27,9 @@ pubnub.addListener({
         var msg = m.message; // The Payload
         console.log(msg["Temp"]); 
         console.log(msg["Hum"]); 
-        
-        //var temp=document.getElementById("temp");
-        //temp.innerHTML("sample");
+
+        document.getElementById("temp").innerText = msg["Temp"] + String.fromCharCode(176) + "C";
+        document.getElementById("hum").innerText = msg["Hum"] + "%";
     }
 })
 }
