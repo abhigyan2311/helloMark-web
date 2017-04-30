@@ -56,8 +56,8 @@ function publishAction(froom,fdevice,fstate){
                 state: fstate
                 },
                 channel: 'switch',
-                sendByPost: false, // true to send via post
-                storeInHistory: false, //override default storage options
+                sendByPost: false,
+                storeInHistory: true,
                 meta: {}
             },
             function (status, response) {
