@@ -2,12 +2,18 @@
     <head>
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+         <link rel="stylesheet" type="text/css" href="css/button-slider.css">
     </head>
     <body class="black darken-4" style="overflow: hidden;">
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/pubnub.min.js"></script>
-        <script type="text/javascript" src="js/temp-listen.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script>
+          $(document).ready(function() {
+            $('#modal1').modal();
+          });
+        </script>
 
         <div class="white-text" style="font-size:20px;text-align:center">Home</div>
         <div class="black row" style="padding: 10px 0px">
@@ -21,16 +27,84 @@
       <table class="black">
         <tbody>
           <tr>
-            <td class="left-align"><img width="65px" src="img/bedroom.png"></td>
-            <td class="right-align"><img width="65px" src="img/kitchen.png"></td>
+            <td class="left-align"><a href="#modal1" onclick="setRoom('bedroom')"><img width="65px" src="img/bedroom.png"></a></td>
+            <td class="right-align"><a href="#modal1" onclick="setRoom('kitchen')"><img width="65px" src="img/kitchen.png"></a></td>
           </tr>
           <tr>
-            <td class="left-align"><img height="55px" width="65px" src="img/dining.png"></td>
-            <td class="right-align"><img width="65px" src="img/living.png"></td>
+            <td class="left-align"><a href="#modal1" onclick="setRoom('dining')"><img height="55px" width="65px" src="img/dining.png"></a></td>
+            <td class="right-align"><a href="#modal1" onclick="setRoom('living')"><img width="65px" src="img/living.png"></a></td>
           </tr>
         </tbody>
       </table>
       </div>
     </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content white-text" style="padding-bottom:0">
+                <div class="row">
+                    <div class="teal accent-4 col s4 center-align" style="padding: 5px 0;">
+                    <image height="40" width="40"src="img/bulb.png"></image>
+                    </div>
+                    <div style="height:50px" class="teal accent-4 col s8">
+                        <div class="col s8">
+                            <p style="font-size:20px; font-weight:500; margin: 2% 0;">Room Light</p>
+                        </div>
+                        <div class="col s4 center-align" style="padding: 10px 0;">
+                            <label class="sw1">
+                                <input type="checkbox" class="checkboxBulb" value="bulb" onclick="getBulb()">
+                                <div class="sl1 r1"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class=" red darken-1 col s4 center-align" style="padding: 5px 0;">
+                    <image height="40" width="40"src="img/fan.png"></image>
+                    </div>
+                    <div style="height:50px" class="red darken-1 col s8" style="padding: 5px 0;">
+                        <div class="col s8">
+                            <p style="font-size:20px; font-weight:500; margin: 2% 0;">Fan</p>
+                        </div>
+                        <div class="col s4 center-align" style="padding: 10px 0;">
+                            <label class="sw1">
+                                <input type="checkbox" class="checkboxFan" value="fan" onclick="getFan()">
+                                <div class="sl1 r1"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="yellow darken-4 col s4 center-align" style="padding: 5px 0;">
+                    <image height="40" width="40"src="img/tv.png"></image>
+                    </div>
+                    <div style="height:50px" class="yellow darken-4 col s8" style="padding: 5px 0;">
+                        <div class="col s8">
+                            <p style="font-size:20px; font-weight:500; margin: 2% 0;">Television</p>
+                        </div>
+                        <div class="col s4 center-align" style="padding: 10px 0;">
+                            <label class="sw1">
+                                <input type="checkbox" class="checkboxTv" value="tv" onclick="getTv()">
+                                <div class="sl1 r1"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="yellow accent-4 col s4 center-align" style="padding: 5px 0;">
+                    <image height="40" width="40"src="img/plug.png"></image>
+                    </div>
+                    <div style="height:50px" class="yellow accent-4 col s8" style="padding: 5px 0;">
+                        <div class="col s8">
+                            <p style="font-size:20px; font-weight:500; margin: 2% 0;">Power Plug</p>
+                        </div>
+                        <div class="col s4 center-align" style="padding: 10px 0;">
+                            <label class="sw1">
+                                <input type="checkbox" class="checkboxPlug" value="plug" onclick="getPlug()">
+                                <div class="sl1 r1"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>     
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+<p id="fetchRoomVar" hidden></p>
     </body>
 </html>
