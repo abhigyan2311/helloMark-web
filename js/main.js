@@ -1,18 +1,17 @@
-window.onload=tempListen;
 
 var subKey="sub-c-383332aa-dcc0-11e6-b6b1-02ee2ddab7fe";
 var pubKey="pub-c-73cca4b9-e219-4f94-90fc-02dd8f018045";
-
+var pubnub = new PubNub({
+    subscribeKey: subKey,
+    publishKey: pubKey,
+    ssl: false
+});
+pubnub.subscribe({
+    channels: ['Temp','switch'],
+    withPresence: false // also subscribe to presence instances.
+});    
+window.onload=tempListen;
 function tempListen(){
-    var pubnub = new PubNub({
-            subscribeKey: subKey,
-            publishKey: pubKey,
-            ssl: false
-    });
-    pubnub.subscribe({
-        channels: ['Temp'],
-        withPresence: false // also subscribe to presence instances.
-    });
     pubnub.addListener({
         message: function(m) {
             var channelName = m.channel;
