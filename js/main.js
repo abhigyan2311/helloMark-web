@@ -18,21 +18,13 @@ function tempListen(){
             var channelGroup = m.subscription;
             var pubTT = m.timetoken;
             var msg = m.message;
-            document.getElementById("temp").innerText = msg["Temp"] + String.fromCharCode(176) + "C";
-            document.getElementById("hum").innerText = msg["Hum"] + "%";
+            if (channelName == "Temp"){
+                document.getElementById("temp").innerText = msg["Temp"] + String.fromCharCode(176) + "C";
+                document.getElementById("hum").innerText = msg["Hum"] + "%";
+            }
         }
     })
 }
-
-var pubnub = new PubNub({
-        subscribeKey: subKey,
-        publishKey: pubKey,
-        ssl: false
-    });
-pubnub.subscribe({
-        channels: ['switch'],
-        withPresence: true // also subscribe to presence instances.
-    });
 
 function getBulb(){
     var checkedValueBulb = $('.checkboxBulb:checked').val();
@@ -77,4 +69,3 @@ function publishAction(froom,fdevice,fstate){
 function setRoom(room){
     document.getElementById("fetchRoomVar").innerHTML = room;
 }
-
