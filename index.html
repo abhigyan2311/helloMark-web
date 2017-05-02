@@ -17,7 +17,9 @@
         <div class="black row" style="padding: 10px 0px">
             <div class="col s4 center"><image height="40" width="32"  src="img/temperature.png"></image><h6 id="temp" class="white-text center">Loading...</h6></div>
             <div class="col s4 center"><image height="40" width="40" src="img/humidity.png"></image><h6 id="hum" class="white-text center">Loading...</h6></div>
-            <div class="col s4 center"><image height="35" width="35" src="img/locked.jpg"></image><h6 id="lockdown" class="white-text center" style="margin-top:13px">Lockdown : Off</h6></div>
+            <div class="col s4 center"><image id="unlock" height="35" width="35" src="img/unlocked.jpg" onclick="getLock()" ></image>
+                <image id="lock" height="35" width="35" src="img/locked.jpg" onclick="getLock()" ></image>
+                <h6 id="lockdownLabel" class="white-text center" style="margin-top:13px">Lock : Off</h6></div>
         <hr>
         </div>
     <div class="row">
