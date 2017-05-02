@@ -72,7 +72,7 @@ function publishActionLock(flock){
     pubnub.publish(
             {
                 message: {
-                "isLockEnabled":flock
+                "isLockDownEnabled":flock
                 },
                 channel: 'lockDown', 
                 sendByPost: false, // true to send via post
